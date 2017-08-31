@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+	{% block head %}
+		<title >Login</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/siging.css">
+	{% endblock %}
+	</head>
+
+	<body>
+		{% block topbar %}
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+					<a class="navbar-brand" href="#">Slints</a>
+					{% if username %}
+					<p id="msg-user-login" class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link"></a>{{ username }}</p>
+					<button id="btn-logout" class="btn btn-primary">Logout</button>
+					{% endif %}
+			</div>
+		</nav>
+		{% endblock %}
+
+		{% block campoLogin %}
+		<div class="container campo-login">
+		{% if not username %}
+			<h1 class="form-heading">Login de Usuário</h1>
+			<table class="table">
+				<tr>
+					<input id="user" class="form-control" type="text" name="username" placeholder="username">
+				</tr>
+				<tr>
+					<input id="password" class="form-control" type="password" name="password" placeholder="password">
+				</tr>
+				<tr><td><button id="btn-login" class="btn btn-primary">Login</button></td></tr>
+			</table>
+		{% else %}
+			<h2 >Seja bem vindo, {{ name }}!</h1>
+		{% endif %}
+		</div>
+		{% endblock %}
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="text/javascript">
+			$("#btn-login").click(function(){
+				const form = {
+					username: document.getElementById("user").value,
+					password: document.getElementById("password").value
+				}
+				console.log(form);
+				axios.post('/api/validar', form)
+				.then(function(response){
+					console.log("Verified User");
+					window.location.replace('/login');
+				})
+				.catch(function(error){
+					console.log("user do not exist");
+					alert("user do not exist");
+				});
+			});
+			$("#btn-logout").click(function(){
+				axios.get('/api/logout')
+					.then(function(response){
+						console.log("User left");
+						window.location.replace('/login');
+					});
+			});
+
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,14 @@
+body{
+	background-color: #c7e4ef;
+}
+.campo-login{
+	width: 30%;
+	margin-top: 3em;
+}
+.form-heading{
+	text-align: center;
+	margin: 10px;
+}
+#btn-login{
+	width: 100%;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "app-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js --rs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "fs": "0.0.1-security",
+    "jquery": "^3.2.1",
+    "nodemon": "^1.11.0",
+    "nunjucks": "^3.0.1",
+    "underscore": "^1.8.3"
+  }
+}
