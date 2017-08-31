@@ -44,33 +44,7 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="text/javascript">
-			$("#btn-login").click(function(){
-				const form = {
-					username: document.getElementById("user").value,
-					password: document.getElementById("password").value
-				}
-				console.log(form);
-				axios.post('/api/validar', form)
-				.then(function(response){
-					console.log("Verified User");
-					window.location.replace('/login');
-				})
-				.catch(function(error){
-					console.log("user do not exist");
-					alert("user do not exist");
-				});
-			});
-			$("#btn-logout").click(function(){
-				axios.get('/api/logout')
-					.then(function(response){
-						console.log("User left");
-						window.location.replace('/login');
-					});
-			});
-
-			
-		</script>
+		<script type="text/javascript" src="static/js/index.js"></script>
 	</body>
 
 </html>
