@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Cadastro</title>
+{% endblock %}
+
+{% block campoLoginOuCadastro %}
+<div class="container campo-login">
+	<h1 class="form-heading">Cadastro de Usuário</h1>
+	<table class="table">
+		<tr>
+			<input id="name" class="form-control" type="text" name="name" placeholder="nome">
+		</tr>
+		<tr>
+			<input id="username" class="form-control" type="text" name="username" placeholder="nome de usuário" >
+		</tr>
+		<tr>
+			<input id="password" class="form-control" type="password" name="password" placeholder="senha">
+		</tr>
+		<tr><td><button id="btn-login" class="btn btn-primary">Cadastrar</button></td></tr>
+	</table>
+</div>
+{% endblock %}
